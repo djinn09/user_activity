@@ -33,6 +33,7 @@ class Users(AbstractBaseUser, PermissionsMixin):
         return self.email
 
     def user_activity(self):
+        user = self
         return ActivityPeriod.objects.filter(user=user)
 
 
