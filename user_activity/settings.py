@@ -22,7 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = "7dx0m3d^c1z-g_u969s%+bkz==ozk2feafe9_ot^s2gz*)v-xf"
+
+# SECRET_KEY = config("SECRET_KEY")
 
 DATABASES = {}
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -81,11 +83,11 @@ WSGI_APPLICATION = "user_activity.wsgi.application"
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    # "default": {
-    #     "ENGINE": "django.db.backends.sqlite3",
-    #     "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    # }
-    "default": dj_database_url.config(default=config("DATABASE_URL"))
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+    },
+    # "default": dj_database_url.config(default=config("DATABASE_URL"))
 }
 
 
@@ -121,14 +123,13 @@ USE_TZ = True
 
 # STATIC_URL = "/static/"
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = "/static/"
 
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, "static"),)
+STATICFILES_DIRS = os.path.join(BASE_DIR, "static")
 STATICFILES_STORAGE = "whitenoise.django.GzipManifestStaticFilesStorage"
 
