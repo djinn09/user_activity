@@ -3,6 +3,9 @@ from app.models import Users, ActivityPeriod
 
 
 class ActivityPeriodSerializer(serializers.ModelSerializer):
+    start_time = serializers.DateTimeField(format="%b %d %Y %H:%M%p")
+    end_time = serializers.DateTimeField(format="%b %d %Y %H:%M%p")
+
     class Meta:
         model = ActivityPeriod
         fields = (
